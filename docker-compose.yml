@@ -15,5 +15,6 @@ services:
       KAFKA_CREATE_TOPICS: "test:1:1,test_hello:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./test.sh:/tmp/test.sh
   logsplitter:
     build: logsplitter

@@ -10,13 +10,7 @@ Start Apache Kafka setup (including `logsplitter` application ) via
 
 Start producer and consumer processes to test the Log-Splitter
 
-    docker-compose run kafka bash
-    $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list="kafka:9092" --topic test
-    >hello
-    >world
-    >test
-    C-d
-    $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic test_hello --from-beginning
+    docker-compose run kafka /tmp/test.sh
 
 ### Confluent
 
