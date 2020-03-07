@@ -4,7 +4,19 @@ Proof of Concept for a Log-Splitter using Kafka and KSQL
 
 ## Usage
 
+Start Apache Kafka setup (including `logsplitter` application ) via
+
     docker-compose up -d
+
+Start producer and consumer processes to test the Log-Splitter
+
+    docker-compose run kafka bash
+    $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list="kafka:9092" --topic test
+    >hello
+    >world
+    >test
+    C-d
+    $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic test_hello --from-beginning
 
 ### Confluent
 

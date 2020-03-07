@@ -12,6 +12,8 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_CREATE_TOPICS: "test:1:1,test_hello:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+  logsplitter:
+    build: logsplitter
