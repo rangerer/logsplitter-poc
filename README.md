@@ -1,8 +1,15 @@
 # Logsplitter PoC
 
-Proof of Concept for a Log-Splitter using Kafka and KSQL
+Proof of Concept for a Log-Splitter using Kafka.
+
+Two alternatives are given:
+
+* `logsplitter` application using vanilla Apache Kafka
+* filtering via KSQL using Confluent Platform
 
 ## Usage
+
+### Apache Kafka
 
 Start Apache Kafka setup (including `logsplitter` application ) via
 
@@ -12,16 +19,18 @@ Start producer and consumer processes to test the Log-Splitter
 
     docker-compose run kafka /tmp/test.sh
 
-### Confluent
+### Confluent Platform
+
+Start a confluent platform testsystem via
 
      cd confluent
      docker-compose up -d --build
 
-Note: Check if all containers are running w/ `docker-compose ps`!
+Note: Check that all containers are running w/ `docker-compose ps`!
 
 Navigate to http://localhost:9021 and follow [Confluent KSQL Docker Guide][confluent-ksql-docker-guide].
 
-Example KSQL query to filter Stream on specific attribute
+Example KSQL query to create filtered stream on specific message attribute
 
      CREATE STREAM test_user1 AS SELECT * FROM test WHERE userid = 'User_1';
 
@@ -54,5 +63,6 @@ Consume the messages from the `test` topic with
 * [Kafka Docker - Connectivity Wiki article](https://github.com/wurstmeister/kafka-docker/wiki/Connectivity)
 
 * [Confluent KSQL](https://www.confluent.io/product/ksql/)
+* [Confluent KSQL Docker Guide][confluent-ksql-docker-guide]
 
 [confluent-ksql-docker-guide]: https://docs.confluent.io/current/quickstart/ce-docker-quickstart.html
